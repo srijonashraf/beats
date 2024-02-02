@@ -1,0 +1,21 @@
+name: Sync and merge upstream repository
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Sync and merge upstream repository with your current repository
+        uses: beats/sync-upstream-repo@v1.0
+        with:
+          upstream_repo: https://github.com/codeninjadevs/beats
+          downstream_branch: main # Specify your downstream branch here
+          token: ${{ secrets.GITHUB_TOKEN }}
