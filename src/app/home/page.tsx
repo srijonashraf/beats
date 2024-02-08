@@ -20,7 +20,7 @@ export default function HomePage() {
 						<RecentlyPlayed />
 						<MostPopular />
 					</div>
-					<div className="bg-gray-50 p-4 col-span-3 flex flex-col gap-4">
+					<div className="p-4 col-span-3 flex flex-col gap-4">
 						<Search />
 						<TopPodcasters />
 						<Player />

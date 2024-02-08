@@ -21,7 +21,7 @@ export default function Slider() {
 						<div>179 currently playing</div>
 					</div>
 					<div className="flex items-center gap-3 mt-10">
-						<button className="bg-red-500 !cursor-pointer rounded-full px-5 py-1.5 font-medium">
+						<button className="bg-red-500 cursor-pointer  rounded-full px-5 py-1.5 font-medium">
 							Listen now
 						</button>
 						<button className="border border-gray-200 rounded-full px-5 py-1.5 font-medium hover:bg-red-500 hover:border-red-500 cursor-pointer">
