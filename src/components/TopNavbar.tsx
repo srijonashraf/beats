@@ -9,7 +9,7 @@ const navLinks = [
 
 export default function TopNavbar() {
 	return (
-		<div className="flex items-center justify-between border-b border-gray-300 px-10 py-5">
+		<div className="flex items-center justify-between border-b border-gray-200 px-10 py-5">
 			<div className="flex gap-6">
 				{navLinks.map((item) => (
 					<div key={item.id}>{item.label}</div>
