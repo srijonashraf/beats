@@ -3,7 +3,7 @@ import React from "react";
 export default function Search() {
 	return (
 		<div className="h-[100px] flex flex-col p-5 justify-center">
-			<h4 className="font-semibold text-sm mb-4 uppercase">Quick Search</h4>
+			<h4 className="font-semibold mb-4 uppercase">Quick Search</h4>
 			<div className="relative w-full">
 				<input
 					className="rounded-full py-2 pl-8 pr-10 focus:outline-none placeholder:text-xs placeholder-gray-400"
