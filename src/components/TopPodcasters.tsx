@@ -26,9 +26,9 @@ export default function TopPodcasters() {
   ];
 
   return (
-    <div className="rounded-xl h-[300px] bg-gray-100 flex flex-col p-5">
+    <div className="rounded-xl flex flex-col p-5">
       <h4 className="uppercase font-semibold">Top Podcasters</h4>
-      <div>
+      <div className="">
         {podcastersList.map((item) => (
           <div
             key={item.id}
