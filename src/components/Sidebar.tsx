@@ -24,7 +24,7 @@ const playlistItems = [
 
 export default function Sidebar() {
 	return (
-		<div className="w-[250px] h-screen bg-gray-100 p-5">
+		<div className="w-[250px] h-screen bg-[#fbfbfb] p-5">
 			<h2 className="font-medium text-xl text-center">Groovy</h2>
 			<div className="flex flex-col gap-5 mt-16">
 				<div>
