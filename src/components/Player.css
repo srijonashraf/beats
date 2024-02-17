@@ -1,0 +1,59 @@
+.player-top-bg {
+  background-image: linear-gradient(
+      to left,
+      rgba(29, 36, 44, 0.5),
+      rgba(29, 36, 44, 1),
+      rgba(29, 36, 44, 1)
+    ),
+    url(/Media/Images/player-bg.jpg);
+  background-size: cover;
+}
+
+.seekbar-active-track::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: -4px;
+  right: -2px;
+  width: 10px;
+  height: 10px;
+  -moz-border-radius: 7.5px;
+  -webkit-border-radius: 7.5px;
+  border-radius: 7.5px;
+  border: 2px solid white;
+  background-color: #232323;
+}
+
+.seekbar-duration {
+  font-size: 0.5rem;
+  line-height: 1rem;
+}
+
+/* Spin Animation */
+.artwork-slow-spin {
+  animation: spin 10s linear infinite;
+}
+@-moz-keyframes spin {
+  from {
+    -moz-transform: rotate(0deg);
+  }
+  to {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
