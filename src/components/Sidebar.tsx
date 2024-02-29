@@ -2,36 +2,44 @@
 "use client";
 import React, { useState } from "react";
 import { Switch } from "antd";
+import { useRouter } from "next/navigation";
 
 const menuItems = [
-  { label: "Explore" },
-  { label: "Genres" },
-  { label: "Albums" },
-  { label: "Artist" },
-  { label: "Radio" },
+  { label: "Discover", path: "/discover" },
+  { label: "Trending", path: "/trending" },
+  { label: "Genres", path: "/genres" },
+  { label: "Albums", path: "/albums" },
+  { label: "Speaker", path: "/speaker" },
 ];
 
 const libraryItems = [
-  { label: "Recent" },
-  { label: "Albums" },
-  { label: "Favourites" },
-  { label: "Local" },
+  { label: "Recent", path: "/recent" },
+  { label: "Playlists", path: "/playlists" },
+  { label: "Favourites", path: "/favourites" },
+  { label: "Local", path: "/local" },
 ];
 
 const playlistItems = [
-  { label: "Create New" },
-  { label: "Design Flow" },
-  { label: "Best of 2020" },
+  { label: "New playlist", path: "/new-playlist" },
+  { label: "Import playlist", path: "/import-playlist" },
+  { label: "Account", path: "/account" },
+  { label: "Settings", path: "/settings" },
 ];
 
 export default function Sidebar() {
+  const router = useRouter();
   const [checked, setChecked] = useState(true);
   const handleClick = () => {
     setChecked((p) => !p);
   };
   return (
     <div className="w-[250px] h-screen bg-[#fbfbfb] p-5">
-      <h2 className="font-medium text-xl text-center">Groovy</h2>
+      <button
+        onClick={() => router.push("/home")}
+        className="font-medium text-xl text-center"
+      >
+        Groovy
+      </button>
       <div className="flex flex-col gap-5 mt-16">
         <div>
           <h2 className="mb-2">MENU</h2>
@@ -77,10 +85,16 @@ export default function Sidebar() {
   );
 }
 
-const MenuItem = ({ label }) => {
+const MenuItem = ({ label, path }) => {
+  const router = useRouter();
   return (
-    <div className="font-medium px-3 py-1.5 text-sm hover:bg-gray-200 rounded cursor-pointer">
-      {label}
+    <div>
+      <button
+        className="font-medium px-3 py-1.5 text-sm hover:bg-gray-200 rounded cursor-pointer"
+        onClick={() => router.push(path)}
+      >
+        {label}
+      </button>
     </div>
   );
 };
