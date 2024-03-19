@@ -1,31 +1,23 @@
 // @ts-nocheck
-import React from "react";
-
-const menuItems = [
-	{ label: "Explore" },
-	{ label: "Genres" },
-	{ label: "Albums" },
-	{ label: "Artist" },
-	{ label: "Radio" },
-];
-
-const libraryItems = [
-	{ label: "Recent" },
-	{ label: "Albums" },
-	{ label: "Favourites" },
-	{ label: "Local" },
-];
-
-const playlistItems = [
-	{ label: "Create New" },
-	{ label: "Design Flow" },
-	{ label: "Best of 2020" },
-];
+"use client";
+import React, { useState } from "react";
+import { Switch } from "antd";
+import { menuItems, libraryItems, customizeItems } from "./SidebarMenu.tsx";
 
 export default function Sidebar() {
+	const router = useRouter();
+	const [checked, setChecked] = useState(true);
+	const handleClick = () => {
+		setChecked((p) => !p);
+	};
 	return (
 		<div className="w-[250px] h-screen bg-[#fbfbfb] p-5">
-			<h2 className="font-medium text-xl text-center">Groovy</h2>
+			<button
+				onClick={() => router.push("/home")}
+				className="font-medium text-xl text-center"
+			>
+				Groovy
+			</button>
 			<div className="flex flex-col gap-5 mt-16">
 				<div>
 					<h2 className="mb-2">MENU</h2>
@@ -44,11 +36,26 @@ export default function Sidebar() {
 					</div>
 				</div>
 				<div>
-					<h2 className="mb-2">PLAYLIST</h2>
+					<h2 className="mb-2">CUSTOMIZE</h2>
 					<div>
-						{playlistItems.map((item, idx) => (
+						{customizeItems.map((item, idx) => (
 							<MenuItem key={idx} {...item} />
 						))}
+					</div>
+				</div>
+				<div>
+					<div className="flex gap-2 items-center">
+						<Switch
+							className="w-[50px]"
+							defaultChecked
+							checked={checked}
+							onClick={handleClick}
+						/>
+						{checked ? (
+							<p className="text-gray-500 text-sm">Black</p>
+						) : (
+							<p className="text-gray-500 text-sm">Light</p>
+						)}
 					</div>
 				</div>
 			</div>
@@ -56,9 +63,15 @@ export default function Sidebar() {
 	);
 }
 
-const MenuItem = ({ label }) => {
+const MenuItem = ({ label, icon, path }) => {
+	const router = useRouter();
+
 	return (
-		<div className="font-medium px-3 py-1.5 text-sm hover:bg-gray-200 rounded cursor-pointer">
+		<div
+			className="flex items-center gap-3 font-medium px-3 py-1.5 text-sm hover:bg-gray-200 rounded cursor-pointer"
+			onClick={() => router.push(path)}
+		>
+			{icon}
 			{label}
 		</div>
 	);
